@@ -1,0 +1,77 @@
+.button {
+  position: relative;
+  width: 70%;
+  height: 10%;
+  display: block;
+  margin: 40px auto;
+  padding: 12px 24px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+  background-color: #A7A8CD;
+  color: #ecf0f1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16pt;
+  font-weight: bold;
+
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+.button:hover, button:focus {
+  background-color: #9596bb;
+}
+
+.button-disable {
+  position: relative;
+  width: 70%;
+  height: 10%;
+  display: block;
+  margin: 40px auto;
+  padding: 12px 24px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+  background-color: #a7a8cd7c;
+  color: #ecf0f1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16pt;
+  font-weight: bold;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-float {
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color: #9596bb;
+	border-radius: 50%;
+	text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-float:hover {
+  background-color: #7c7daf;
+}
+
+.button-float-image {
+  width: 40px;
+}

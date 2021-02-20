@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+@charset 'utf-8';
+
+// Clear And Normalize
+@import 'Base/clear';
+
+// Utils Styles
+@import 'Abstracts/variables';
+@import 'Abstracts/functions';
+@import 'Abstracts/utils';
+
+// Base Styles
+@import 'Base/typography';
+@import 'Base/icons';
+
+// Components Styles
+@import 'Components/forms';
+@import 'Components/inputs';
+@import 'Components/cards';
+@import 'Components/buttons';
+
+// Layouts Styles
+@import 'Layout/header';
+@import 'Layout/grids';
+
+
+html {
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+
+app-register, app-login, app-courses {
+  padding-top: $header-height;
+  width: 100%;
+  height: 100-$header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

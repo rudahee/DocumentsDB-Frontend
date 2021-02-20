@@ -1,0 +1,24 @@
+
+app-header {
+  height: $header-height;
+  width: $header-width;
+  background-color: $primary-color;
+  position: fixed;
+  top: 0;
+  color: white;
+}
+
+.header-left {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.text-logo {
+  font-size: 32pt;
+  padding: 0;
+  margin: 0;
+}
