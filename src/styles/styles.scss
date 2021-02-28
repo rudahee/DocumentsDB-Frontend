@@ -19,6 +19,7 @@
 @import 'Components/inputs';
 @import 'Components/cards';
 @import 'Components/buttons';
+@import 'Components/expansion-panels';
 
 // Layouts Styles
 @import 'Layout/header';
@@ -39,4 +40,29 @@ app-register, app-login, app-courses {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+app-subject {
+  height: $header-height;
+  width: $header-width;
+  background-color: #676788bf;
+  position: fixed;
+  top: $header-height;
+  color: white;
+}
+
+app-topic {
+  position: fixed;
+  height: 100-($header-height*2);
+  width: 15%;
+  left: 0;
+  bottom: 0;
+  background-color: $primary-color;
+}
+
+app-note-list {
+  position: fixed;
+  height: 100-($header-height*2);
+  width: 100-15%;
+  right: 0;
+  bottom: 0;
 }

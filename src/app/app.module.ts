@@ -10,6 +10,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { CourseContainerComponent } from './components/course/course-container/course-container.component';
+import { SubjectComponent } from './components/course/subject/subject.component';
+import { TopicComponent } from './components/course/topic/topic.component';
+import { NoteListComponent } from './components/course/note-list/note-list.component';
 
 
 
@@ -21,6 +25,10 @@ import { CoursesComponent } from './components/courses/courses.component';
     LoginComponent,
     RegisterComponent,
     CoursesComponent,
+    CourseContainerComponent,
+    SubjectComponent,
+    TopicComponent,
+    NoteListComponent,
   ],
   imports: [
     BrowserModule,
