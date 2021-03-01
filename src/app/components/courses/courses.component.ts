@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ICourse } from 'src/app/interfaces/course-interfaces';
+import { AllCourseService } from 'src/app/services/courses/all-courses/all-course.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-courses',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  courses: ICourse[];
+
+  constructor(private allCourses: AllCourseService) { }
 
   ngOnInit(): void {
+    this.getAllCourses();
+  }
+
+  getAllCourses() {
+    this.allCourses.getAllCourses().subscribe(
+      resp => {
+        if (resp != undefined && resp != null) {
+          this.courses = resp;
+        }
+      }
+    )
+  }
+
+  goToCourse(id: number) {
+    console.log(id);
   }
 
 }

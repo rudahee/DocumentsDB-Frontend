@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <button href="#" [class]="loginForm.valid ? 'button':'button-disable' " [disabled]="!loginForm.valid" >Sign In</button>
+      <button href="#" [class]="loginForm.valid ? 'button':'button-disable' " [disabled]="!loginForm.valid" (click)="signIn()" >Sign In</button>
 
     </form>
   </div>

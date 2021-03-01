@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <button [class]="registerForm.valid ? 'button':'button-disable' " [disabled]="!registerForm.valid" >Sign Up</button>
+      <button [class]="registerForm.valid ? 'button':'button-disable' " [disabled]="!registerForm.valid" (click)="signUp()" >Sign Up</button>
 
     </form>
   </div>
