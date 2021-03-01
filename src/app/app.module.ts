@@ -15,6 +15,9 @@ import { SubjectComponent } from './components/course/subject/subject.component'
 import { TopicComponent } from './components/course/topic/topic.component';
 import { NoteListComponent } from './components/course/note-list/note-list.component';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './services/interceptor/http-interceptor.service';
+
 
 
 @NgModule({
@@ -33,9 +36,10 @@ import { NoteListComponent } from './components/course/note-list/note-list.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
