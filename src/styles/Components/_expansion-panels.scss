@@ -2,15 +2,17 @@
   background-color: $primary-color;
   color: white;
   cursor: pointer;
-  padding: 2%;
-  width: 85%;
+  padding: 1%;
+  height: fit-content;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 15px;
   margin-top: 2%;
   box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
   transition: 0.3s;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .collapsible:hover {
@@ -18,9 +20,18 @@
 }
 
 .content {
-  width: 85%;
-  padding: 2%;
+  height: fit-content;
+  padding-bottom: 1%;
   background-color: #636379;
   transition: 0.4s;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 2%;
+}
+
+.content-hide {
+  display: none;
 }
 

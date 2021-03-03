@@ -12,8 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseContainerComponent } from './components/course/course-container/course-container.component';
 import { SubjectComponent } from './components/course/subject/subject.component';
-import { TopicComponent } from './components/course/topic/topic.component';
-import { NoteListComponent } from './components/course/note-list/note-list.component';
+import { TopicListComponent } from './components/course/topic-list/topic-list.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/interceptor/http-interceptor.service';
@@ -30,8 +29,7 @@ import { HttpInterceptorService } from './services/interceptor/http-interceptor.
     CoursesComponent,
     CourseContainerComponent,
     SubjectComponent,
-    TopicComponent,
-    NoteListComponent,
+    TopicListComponent,
   ],
   imports: [
     BrowserModule,
