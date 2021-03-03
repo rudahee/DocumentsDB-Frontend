@@ -20,6 +20,7 @@
 @import 'Components/cards';
 @import 'Components/buttons';
 @import 'Components/expansion-panels';
+@import 'Components/list';
 
 // Layouts Styles
 @import 'Layout/header';
@@ -41,15 +42,31 @@ app-register, app-login, app-courses {
   justify-content: center;
   align-items: center;
 }
+
 app-subject {
-  height: $header-height;
-  width: $header-width;
-  background-color: #676788bf;
-  position: fixed;
-  top: $header-height;
-  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  margin: 2%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
+app-course-container {
+  height: 100-$header-height;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  bottom: 0;
+}
+
+/*
 app-topic {
   position: fixed;
   height: 100-($header-height*2);
@@ -66,3 +83,4 @@ app-note-list {
   right: 0;
   bottom: 0;
 }
+*/

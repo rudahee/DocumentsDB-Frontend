@@ -30,7 +30,7 @@ export class CoursesComponent implements OnInit {
   }
 
   goToCourse(id: number) {
-    console.log(id);
+    console.log(id)
   }
 
 }
