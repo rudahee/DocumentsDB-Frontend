@@ -1,15 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ICourseWithSubjects } from 'src/app/interfaces/course-interfaces';
+import { ActivatedRoute } from '@angular/router';
 import { ISubjectDTO } from 'src/app/interfaces/subject-interface';
-import { OneCourseService } from 'src/app/services/courses/one-course/one-course.service'
+import { OneCourseService } from 'src/app/services/courses/one-course/one-course.service';
 
 @Component({
-  selector: 'app-course-container',
-  templateUrl: './course-container.component.html',
-  styleUrls: ['./course-container.component.scss']
+  selector: 'app-course-item',
+  templateUrl: './courses.component.html',
+  styleUrls: ['./courses.component.scss']
 })
-export class CourseContainerComponent implements OnInit {
+export class CourseItemComponent implements OnInit {
 
   private id: string;
   public course: ICourseWithSubjects;
@@ -41,10 +41,10 @@ export class CourseContainerComponent implements OnInit {
             subject => {
               subject.open = false;
            })
-           console.log(this.subjects)
           this.name = this.course.name;
         }
       }
     )
   }
+
 }

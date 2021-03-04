@@ -9,13 +9,12 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { CoursesComponent } from './components/courses/courses.component';
-import { CourseContainerComponent } from './components/course/course-container/course-container.component';
-import { SubjectComponent } from './components/course/subject/subject.component';
-import { TopicListComponent } from './components/course/topic-list/topic-list.component';
+
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/interceptor/http-interceptor.service';
+import { CourseModule } from './@course/course.module';
+import { TopicModule } from './@topic/topic.module';
 
 
 
@@ -26,16 +25,14 @@ import { HttpInterceptorService } from './services/interceptor/http-interceptor.
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    CoursesComponent,
-    CourseContainerComponent,
-    SubjectComponent,
-    TopicListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CourseModule,
+    TopicModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]

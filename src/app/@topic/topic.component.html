@@ -1,0 +1,19 @@
+<button class="button-float">
+  <img src="assets/icons/add.png" alt="button to add a course" class="button-float-image">
+</button>
+
+  <h1>{{ topic.name }}</h1>
+
+  <h3>{{ topic.description }}</h3>
+
+<div *ngFor="let note of notes"  style="width: 100%;" >
+  <div class="collapsible" (click) = "note.open = !note.open">
+  <span><h1>{{note.name}}</h1> <p>{{note.description}}</p></span>
+  </div>
+  <div *ngIf="note.open" class="content">
+    <p>
+      {{note.document.data}}
+    </p>
+  </div>
+
+</div>

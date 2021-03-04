@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ITopicDTO } from 'src/app/interfaces/topic-interface';
 
+
 @Component({
   selector: 'app-topic-list',
   templateUrl: './topic-list.component.html',
@@ -15,5 +16,4 @@ export class TopicListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

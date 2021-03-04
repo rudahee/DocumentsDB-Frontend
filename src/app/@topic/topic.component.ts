@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { INoteDTO } from '../interfaces/notes-interfaces';
+import { ITopicWithNotes } from '../interfaces/topic-interface';
+import { TopicsService } from '../services/topics/topics.service';
+
+@Component({
+  selector: 'app-topic',
+  templateUrl: './topic.component.html',
+  styleUrls: ['./topic.component.scss']
+})
+export class TopicComponent implements OnInit {
+
+  topic: ITopicWithNotes = {
+    name: "",
+    description: "",
+  };
+
+  notes: INoteDTO[];
+
+  constructor(private topicService: TopicsService, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    let id:string = this.route.snapshot.paramMap.get('id');
+    this.getAllTopics(id);
+  }
+
+  getAllTopics(id: string) {
+    this.topicService.getTopic(id).subscribe(
+      resp => {
+        if (resp != undefined && resp != null) {
+          this.topic = {
+            "name": resp.name,
+            "description": resp.description
+          }
+          this.notes = resp.notesDTO;
+          for (let note in this.notes) {
+            this.notes[note].open = false;
+          }
+        }
+      }
+    )
+  }
+}
