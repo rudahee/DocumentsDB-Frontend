@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         if (resp != undefined && resp != null) {
           this.authJWT.saveJWT(resp.headers.get('Authorization').split(' ')[1].trim());
 
-          this.router.navigate(['/courses']);
+          this.router.navigate(['/course']);
         }
       },
       _error => {

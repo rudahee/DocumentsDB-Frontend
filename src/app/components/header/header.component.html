@@ -1,6 +1,23 @@
+<header>
 <div class="header-left">
-  <img class="icon-large" src="assets/icons/menu_closed.png" alt="menu icon">
-  <p class="text-logo"><strong>DocsDB</strong></p>
+  <img class="icon-large-both" [src]="navMenuOpen ? 'assets/icons/menu_open.png':'assets/icons/menu_closed.png'"
+    (click)="navMenuChangeStatus()" alt="button for navigator menu" tabindex="1">
+  <p class="text-logo" [routerLink]="['']" tabindex="1"><strong>DocsDB</strong></p>
 </div>
+
 <div class="spacer"></div>
-<div></div>
+
+<img class="icon-large-mr" src="assets/icons/account_circle.png"
+  (click)="profileMenuChangeStatus()" alt="button for account menu" tabindex="1">
+</header>
+
+<ul *ngIf="navMenuOpen" class="menu-left">
+  <li class="menu-item" routerLink="">Home Page</li>
+  <li class="menu-item" routerLink="course">My Courses</li>
+  <li class="menu-item" routerLink="sign-in">Sign In</li>
+  <li class="menu-item" routerLink="sign-up">Sign Up</li>
+</ul>
+
+<ul *ngIf="profileMenuOpen" class="menu-rigth">
+  <li class="menu-item"(click)="logout()">Sign Out</li>
+</ul>

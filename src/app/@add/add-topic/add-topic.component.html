@@ -1,0 +1,26 @@
+<main>
+  <div class="card-wrapper">
+    <h1 class="card-title">Add Topic</h1>
+    <div class="card-content">
+      <form #formSend="ngForm" (ngSubmit)="onSubmitForm(formSend.value)" class="form-one-column">
+
+          <div class="styled-input">
+            <input [(ngModel)]="topic.name" name="name" type="text"
+              alt="input for topic's name" maxlength="35" required>
+            <label for="topic">Name</label>
+            <span></span>
+          </div>
+
+          <div class="styled-input">
+            <input [(ngModel)]="topic.description" name="description" type="text"
+              alt="input for topic's description" maxlength="70" required>
+            <label for="description">Description</label>
+            <span></span>
+          </div>
+
+        <button type="submit" [class]="formSend.valid ? 'button':'button-disable' " [disabled]="!formSend.valid">Add Topic</button>
+      </form>
+    </div>
+  </div>
+</main>
+

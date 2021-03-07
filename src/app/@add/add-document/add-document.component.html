@@ -1,0 +1,16 @@
+<main>
+  <div class="card-wrapper">
+    <h1 class="card-title">Add Documents</h1>
+    <div class="card-content">
+      <form [formGroup]="addDocForm" class="form-one-column">
+          <div class="styled-input">
+            <input type="file" id="files" multiple (change)="detectFiles($event)">
+            <span></span>
+          </div>
+
+        <button href="#" [class]="addDocForm.valid ? 'button':'button-disable' " [disabled]="!addDocForm.valid" (click)="addDocuments()" >Add Documents</button>
+
+      </form>
+    </div>
+  </div>
+</main>

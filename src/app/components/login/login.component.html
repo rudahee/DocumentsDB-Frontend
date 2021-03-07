@@ -1,25 +1,26 @@
-<div class="card-wrapper-small">
-  <h1 class="card-title">Sign In</h1>
-  <div class="card-content">
-    <form [formGroup]="loginForm" class="form-one-column">
-      <div class="form-div">
-        <div class="styled-input">
-          <input id="username" name="username" type="text"
-            alt="input for username" formControlName="username" required>
-          <label for="username">Username</label>
-          <span></span>
-        </div>
+<main>
+  <div class="card-wrapper">
+    <h1 class="card-title">Sign In</h1>
+    <div class="card-content">
+      <form [formGroup]="loginForm" class="form-one-column">
 
-        <div class="styled-input">
-          <input id="password" name="password" type="password"
-            alt="input for password" formControlName="password" required>
-          <label for="password">Password</label>
-          <span></span>
-        </div>
-      </div>
+          <div class="styled-input">
+            <input id="username" name="username" type="text"
+              alt="input for username" formControlName="username" required>
+            <label for="username">Username</label>
+            <span></span>
+          </div>
 
-      <button href="#" [class]="loginForm.valid ? 'button':'button-disable' " [disabled]="!loginForm.valid" (click)="signIn()" >Sign In</button>
+          <div class="styled-input">
+            <input id="password" name="password" type="password"
+              alt="input for password" formControlName="password" required>
+            <label for="password">Password</label>
+            <span></span>
+          </div>
 
-    </form>
+        <button href="#" [class]="loginForm.valid ? 'button':'button-disable' " [disabled]="!loginForm.valid" (click)="signIn()" >Sign In</button>
+
+      </form>
+    </div>
   </div>
-</div>
+</main>

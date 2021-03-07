@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Renderer2 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ISubjectDTO } from 'src/app/interfaces/subject-interface';
 import { ITopicDTO } from 'src/app/interfaces/topic-interface';
 
@@ -9,7 +10,7 @@ import { ITopicDTO } from 'src/app/interfaces/topic-interface';
 })
 export class SubjectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   @Input()
   public subjects: ISubjectDTO[];
@@ -20,6 +21,10 @@ export class SubjectComponent implements OnInit {
 
   openTopic(subject: ISubjectDTO) {
     subject.open = !subject.open;
+  }
+
+  goToAddTopic(id: string) {
+    this.router.navigate(['/add/topic/'+id])
   }
 
 }

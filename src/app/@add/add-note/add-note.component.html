@@ -1,0 +1,32 @@
+<main>
+  <div class="card-wrapper">
+    <h1 class="card-title">Add Note</h1>
+    <div class="card-content">
+      <form [formGroup]="addNoteForm" class="form-one-column">
+
+          <div class="styled-input">
+            <input id="name" name="name" type="text"
+              alt="input for name" formControlName="name" required>
+            <label for="name">name</label>
+            <span></span>
+          </div>
+
+          <div class="styled-input">
+            <input id="description" name="description" type="text"
+              alt="input for description" formControlName="description" required>
+            <label for="description">description</label>
+            <span></span>
+          </div>
+
+          <div class="styled-input">
+            <textarea rows="5" cols="45" alt="text area for additional text notes" formControlName="text" required></textarea>
+            <label for="text">Additional text note</label>
+            <span></span>
+          </div>
+
+        <button href="#" [class]="addNoteForm.valid ? 'button':'button-disable' " [disabled]="!addNoteForm.valid" (click)="addNote()" >Add Note</button>
+
+      </form>
+    </div>
+  </div>
+</main>

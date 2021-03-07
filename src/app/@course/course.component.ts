@@ -31,4 +31,8 @@ export class CourseComponent implements OnInit {
   goToCourse(id: string) {
     this.route.navigate(['/course/'+id])
   }
+
+  goToAddCourse() {
+    this.route.navigate(['/add/course'])
+  }
 }

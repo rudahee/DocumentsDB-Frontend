@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { INoteDTO } from '../interfaces/notes-interfaces';
 import { ITopicWithNotes } from '../interfaces/topic-interface';
 import { TopicsService } from '../services/topics/topics.service';
@@ -17,12 +17,19 @@ export class TopicComponent implements OnInit {
   };
 
   notes: INoteDTO[];
-
-  constructor(private topicService: TopicsService, private route: ActivatedRoute) { }
+  id: string;
+  constructor(private topicService: TopicsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    let id:string = this.route.snapshot.paramMap.get('id');
-    this.getAllTopics(id);
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.getAllTopics(this.id);
+  }
+
+  goToAddNote(){
+    this.router.navigate(['/add/note/'+this.id])
+  }
+  goToAddDocument(id: string) {
+    this.router.navigate(['/add/document/'+id])
   }
 
   getAllTopics(id: string) {

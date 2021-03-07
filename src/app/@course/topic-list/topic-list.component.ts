@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ITopicDTO } from 'src/app/interfaces/topic-interface';
 
 
@@ -9,11 +10,16 @@ import { ITopicDTO } from 'src/app/interfaces/topic-interface';
 })
 export class TopicListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   @Input()
   public topics: ITopicDTO[];
 
   ngOnInit(): void {
   }
+
+  goToTopic(id: string) {
+    this.router.navigate(['/topic/'+id])
+  }
+
 }

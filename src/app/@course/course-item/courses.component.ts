@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourseWithSubjects } from 'src/app/interfaces/course-interfaces';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ISubjectDTO } from 'src/app/interfaces/subject-interface';
 import { OneCourseService } from 'src/app/services/courses/one-course/one-course.service';
 
@@ -19,7 +19,7 @@ export class CourseItemComponent implements OnInit {
 
 
 
-  constructor(private courseServ:OneCourseService, private route: ActivatedRoute) { }
+  constructor(private courseServ:OneCourseService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -45,6 +45,10 @@ export class CourseItemComponent implements OnInit {
         }
       }
     )
+  }
+
+  goToAddSubject() {
+    this.router.navigate(['/add/subject/'+this.id])
   }
 
 }

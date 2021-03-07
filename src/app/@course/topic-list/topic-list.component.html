@@ -1,12 +1,11 @@
-<ol>
-  <li *ngFor="let topic of topics"
-      style="display: flex; justify-content:space-around; align-items:center; padding-top: 4%;">
-    <div style="width: 70%;">
-      <h1>{{ topic.name }}</h1>
+<ol class="file w-full flex-column">
+  <li *ngFor="let topic of topics" class="flex-row w-full">
+    <div class="w-full flex-column">
+      <h1 class="flex-center subtitle-basic w-full" style="text-align: center;">{{ topic.name }}</h1>
       <p>{{ topic.description }}</p>
+      <hr class="w-85 opacitty-low">
     </div>
-    <div style="width: 30%; text-align: right;">
-      <button>Ver mas</button>
-    </div>
+    <button class="button-mini" (click)="goToTopic(topic.id)">Ver mas</button>
+
   </li>
 </ol>

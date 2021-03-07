@@ -1,0 +1,32 @@
+<main>
+  <div class="card-wrapper">
+    <h1 class="card-title">Add Course</h1>
+    <div class="card-content">
+      <form #formSend="ngForm" (ngSubmit)="onSubmitForm(formSend.value)" class="form-one-column">
+
+          <div class="styled-input">
+            <input [(ngModel)]="course.acronym" name="acronym" type="text"
+              alt="input for course's acronym" maxlength="5" required>
+            <label for="acronym">Acronym</label>
+            <span></span>
+          </div>
+
+          <div class="styled-input">
+            <input [(ngModel)]="course.name" name="name" type="text"
+              alt="input for course's name" maxlength="35" required>
+            <label for="name">Name</label>
+            <span></span>
+          </div>
+
+          <div class="styled-input">
+            <input [(ngModel)]="course.description" name="description" type="text"
+              alt="input for course's description" required>
+            <label for="description">Description</label>
+            <span></span>
+          </div>
+
+        <button type="submit" [class]="formSend.valid ? 'button':'button-disable' " [disabled]="!formSend.valid">Add Course</button>
+      </form>
+    </div>
+  </div>
+</main>

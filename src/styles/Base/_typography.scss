@@ -12,3 +12,31 @@ html {
   margin-bottom: 1%;
   font-weight: bolder;
 }
+
+.title-basic {
+  font-size: $size_title;
+  text-align: center;
+  color: $text-color;
+}
+
+.subtitle-basic {
+  font-size: $size_subtitle;
+  text-align: justify;
+}
+
+.title-topic {
+  @extend .title-basic;
+  margin: $margin_basic;
+}
+
+.title-note {
+  @extend .title-basic;
+  font-size: $size_title - 1.5em;
+  margin-left: $margin_basic ;
+}
+
+.subtitle-note {
+  @extend .subtitle-basic;
+  font-size: $size_subtitle - 0.6em;
+}
+

@@ -1,24 +1,23 @@
 
 // Background Colors
-$background-color: #cec6e1;
-
-$primary-color: #454555;
-
-$secondary-color: #3362da;
-
+$primary-color: #6247aa;
+$primary-color-hover: #6f59ac;
+$secondary-color:#7b6a8b;
+$background-color: #e2cfea25;
 $error-color: #ce2d4b;
+
+$text-color: #062726;
+$text-secondary-color: #E2E2E2;
 
 $disable-color: #9e9e9e;
 
-$text-color: #FFF;
+$margin_basic: 1rem;
+$padding_basic: 1rem;
+$size_title: 3.5em;
+$size_subtitle: 1.7em;
+$width_left: 30%;
+$width_rigth: 70%;
+$height_header: 100px;
+$border-radius: 5px;
 
-$text-gray: rgba(255, 255, 255, 0.5);
-
-$icon-size-large: 36pt;
-
-
-$header-height: 8vh;
-$header-width: 100vw;
-
-$content-page-height: 92vh;
-$content-page-width: 100vw;
+$transition-03: background-color 0.3s ease-in-out;

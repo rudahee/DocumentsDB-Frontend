@@ -1,12 +1,16 @@
-
+<main style="justify-content: flex-start;">
 <div *ngFor="let subjectItem of subjects; let i = index"
-    style="width:90%; height: fit-content;">
+    style=" width:90%; height: fit-content;">
   <div class="collapsible" (click)="openTopic(subjectItem)">
-    <h1 >{{subjectItem.name}}</h1>
+    <h1 class="title-note">{{subjectItem.name}}</h1>
   </div>
-  <div class="content" *ngIf="subjectItem.open">
+  <div class="content flex-column" *ngIf="subjectItem.open">
 
-    <app-topic-list [topics]="subjectItem.topics"></app-topic-list>
+    <app-topic-list class="content flex-column w-95" [topics]="subjectItem.topics"></app-topic-list>
 
+    <button class="button" (click)="goToAddTopic(subjectItem.id)">
+        <p>Add new topic</p>
+    </button>
   </div>
 </div>
+</main>

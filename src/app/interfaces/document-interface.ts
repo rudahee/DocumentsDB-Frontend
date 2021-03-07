@@ -1,7 +1,7 @@
 export interface IDocument {
-  id: number;
+  id?: number;
   size: number;
   name: string;
+  data?: any
   contentType: string;
-  data: Blob;
 }
