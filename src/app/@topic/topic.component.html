@@ -1,0 +1,48 @@
+<div class="flex-column flex-center">
+  <h1 class="title-topic">{{topic.name}} </h1>
+  <h3 class="subtitle-note">{{topic.description}} </h3>
+</div>
+<button class="button-float" (click)="goToAddNote()">
+  <img src="assets/icons/add.png" alt="button to add a course" class="button-float-image">
+</button>
+
+<main style="justify-content: flex-start;">
+  <div *ngFor="let note of notes" style=" width:90%; height: fit-content;">
+    <div class="collapsible" (click)="note.open = !note.open">
+      <span>
+        <h1 class="title-note">{{note.name}}</h1>
+        <p class="subtitle-note">{{note.description}}</p>
+      </span>
+    </div>
+    <div class="content flex-column" *ngIf="note.open">
+      <div class="flex-row">
+        <p>{{note.text}}</p>
+        <div>
+          {{note.document}}
+        </div>
+      </div>
+      <button class="button" (click)="goToAddDocument(note.id)">
+        <p>Add documents</p>
+      </button>
+    </div>
+  </div>
+</main>
+      <!--<div class="container_notes">
+        <div class="mini-note">
+          <p class="text-mn">{{note.text}}</p>
+        </div>
+      </div>
+      <div class="container_files" *ngFor="let superdocu of note.document">
+
+        <div class="file">
+          <span class="filename">{{superdocu.name}}</span>
+
+          <div class="icons">
+            <span class="size">{{(superdocu.size / 1024)/1024}} MB</span>
+            <img src="assets/icons/file_download.png" alt="img_download" class="setting_img download">
+            <img *ngIf="superdocu.contentType == 'application/pdf'" src="assets/icons/open_in_new.png" alt="img_open-in-new" class="setting_img open">
+            <img *ngIf="superdocu.contentType != 'application/pdf'" class="setting_img download">
+          </div>
+
+        </div>-->
+

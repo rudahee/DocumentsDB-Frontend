@@ -1,81 +1,58 @@
 %label-movement {
-  // Move up, colorize and shrink
   font-size: 0.85em;
   color: #454555;
   top: -2.25rem;
-  transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+  transition: all 0.525s cubic-bezier(0.2, 0, 0.03, 1);
 }
 
 .styled-input {
-  width: 75.3333%;
-  margin: 2rem 1rem;
+  margin: 1rem 1rem;
   position: relative;
+
   label {
     color: rgb(138, 138, 138);
     padding: 1rem;
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
+    transition: all 0.525s cubic-bezier(0.2, 0, 0.03, 1);
     pointer-events: none;
   }
-  &.wide {
-    width: 100%;
-  }
-}
 
-.styled-input-small {
-  width: 40.3333%;
-  margin: 2rem 1rem;
-  position: relative;
-  label {
-    color: rgb(138, 138, 138);
-    padding: 1rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 0.25s cubic-bezier(0.2, 0, 0.03, 1);
-    pointer-events: none;
-  }
-  &.wide {
-    width: 100%;
-  }
-}
-
-
-.styled-input input, .styled-input-small input  {
-  padding: 1rem 1rem;
-  border: 0;
-  width: 100%;
-  font-size: 1rem;
-  ~ span {
-    display: block;
-    height: 3px;
-    background: #454555;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
-  }
-  &:focus {
-    // Trigger the effects
-    outline: 0;
-	  ~ label {
-      // Move Label
-      @extend %label-movement;
-  	}
+  input, textarea {
+    padding: 1rem 1rem;
+    border: 0;
+    width: 20rem;
+    font-size: 1rem;
     ~ span {
-      // Expand across
-      width: 100%;
-      transition: all 0.125s cubic-bezier(0.2, 0, 0.03, 1);
+      display: block;
+      height: 3px;
+      background: #454555;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: all 0.525s cubic-bezier(0.2, 0, 0.03, 1);
     }
-	}
-  &:valid ~ label/*, &.not-empty ~ label*/ {
-    // Keep label above field after its filled out
+  }
+
+  input:focus, textarea:focus {
+    outline: 0;
+
+	  ~ label {
+      @extend %label-movement;
+    }
+
+    ~ span {
+      width: 20rem + 2.3rem;
+      transition: all 0.525s cubic-bezier(0.2, 0, 0.03, 1);
+    }
+  }
+
+  input:valid ~ label, textarea:valid ~ label {
     @extend %label-movement;
   }
 }
 
 .ng-invalid:not(form) {
-  border-left: 5px solid rgba(208, 0, 0, 0.535);
+  border-left: 0.3rem solid rgba(208, 0, 0, 0.535);
 }

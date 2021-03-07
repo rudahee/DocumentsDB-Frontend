@@ -1,44 +1,45 @@
-<div class="card-wrapper">
+<main>
+<div class="card-wrapper-large">
   <h1 class="card-title">Sign Up</h1>
   <div class="card-content">
-    <form [formGroup]="registerForm" class="form-one-column">
-      <div class="form-div-two-cols">
-        <div class="styled-input-small">
+    <form [formGroup]="registerForm">
+      <div class="form-two-columns">
+        <div class="styled-input">
           <input id="name" name="name" type="text"
             alt="input for name" formControlName="name" required>
           <label for="name">Name</label>
           <span></span>
         </div>
 
-        <div class="styled-input-small">
+        <div class="styled-input">
           <input id="surname" name="surname" type="text"
             alt="input for surname" formControlName="surname" required>
           <label for="surname">Surname</label>
           <span></span>
         </div>
 
-        <div class="styled-input-small">
+        <div class="styled-input">
           <input id="age" name="age" type="number"
             alt="input for age" formControlName="age" required>
           <label for="age">Age</label>
           <span></span>
         </div>
 
-        <div class="styled-input-small">
+        <div class="styled-input">
           <input id="email" name="email" type="text"
             alt="input for email" formControlName="email" required>
           <label for="email">Email</label>
           <span></span>
         </div>
 
-        <div class="styled-input-small">
+        <div class="styled-input">
           <input id="username" name="username" type="text"
             alt="input for username" formControlName="username" required>
           <label for="username">Username</label>
           <span></span>
         </div>
 
-        <div class="styled-input-small">
+        <div class="styled-input">
           <input id="password" name="password" type="password"
             alt="input for password" formControlName="password" required>
           <label for="password">Password</label>
@@ -51,4 +52,4 @@
     </form>
   </div>
 </div>
-
+</main>

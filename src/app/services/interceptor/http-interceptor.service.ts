@@ -23,9 +23,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       request = request.clone({ headers: request.headers.set('Access-Control-Expose-Headers', 'Authorization')})
     }
 
-    if (!request.headers.has('Content-Type')) {
-      request = request.clone({ headers: request.headers.set('Content-Type', 'application/json; charset=utf-8')});
-    }
+
 
     request = request.clone({headers: request.headers.set('Accept', 'application/json')});
 

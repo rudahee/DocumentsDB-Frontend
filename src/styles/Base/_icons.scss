@@ -1,8 +1,27 @@
 
-.icon-large {
+.icon-clickable {
   cursor: pointer;
-  width: $icon-size-large;
-  height: $icon-size-large;
-  color: $text-color;
-  padding: 0 3% 0 1%;
+}
+
+
+.icon-large {
+  @extend .icon-clickable;
+  width: 3.5em;
+}
+
+.icon-large-ml {
+  @extend .icon-large;
+  margin-left: $margin_basic;
+}
+
+.icon-large-mr {
+  @extend .icon-large;
+  margin-right: $margin_basic;
+}
+
+.icon-large-both {
+  @extend .icon-large;
+  margin-left: $margin_basic;
+  margin-right: $margin_basic;
+  padding-bottom: $padding_basic - 0.8rem;
 }

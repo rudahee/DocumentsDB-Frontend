@@ -1,5 +1,5 @@
 .collapsible {
-  background-color: $primary-color;
+  background-color: $secondary-color;
   color: white;
   cursor: pointer;
   padding: 1%;
@@ -11,27 +11,60 @@
   margin-top: 2%;
   box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
   transition: 0.3s;
-  margin-left: 1%;
-  margin-right: 1%;
+
+
+  span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .collapsible:hover {
-  background-color: #636379;
+  background-color: $primary-color;
 }
 
 .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   height: fit-content;
-  padding-bottom: 1%;
-  background-color: #636379;
-  transition: 0.4s;
-  padding-left: 2%;
-  padding-right: 2%;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-bottom: 2%;
+  padding: $padding_basic + 0.5rem;
+  background-color: $secondary-color;
+
+  .text-note {
+    text-align: justify;
+    padding: $padding_basic;
+    border: 1px solid $text-secondary-color;
+    border-radius: $border-radius;
+    color: $text-secondary-color;
+    margin: $margin_basic - 0.2rem;
+    height: fit-content + 10px;
+    width: $width_rigth;
+    min-height: 70px;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .files {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    width: $width_rigth;
+    border: 1px solid $text-secondary-color;
+    margin: $margin_basic - 0.2rem;
+    padding: $padding_basic;
+    border-radius: $border-radius;
+
+
+
+  }
+  .file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
 }
 
-.content-hide {
-  display: none;
-}
 

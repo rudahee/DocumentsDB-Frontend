@@ -1,0 +1,18 @@
+<button class="button-float" (click)="goToAddCourse()">
+  <img src="assets/icons/add.png" alt="button to add a course" class="button-float-image">
+</button>
+
+<div class="flex-3-to-1-col">
+  <div *ngFor="let course of courses" class="card-wrapper-mini">
+    <h1 class="card-subtitle">{{course.acronym}}</h1>
+    <p class="card-subtitle-sm">
+      {{course.name}}
+    </p>
+    <div class="card-subtitle" style="font-size: 14pt; font-weight: 400;">
+      {{course.description}}
+    </div>
+    <div class="card-actions">
+      <button class="button" (click)="goToCourse(course.id)">See More</button>
+    </div>
+  </div>
+</div>

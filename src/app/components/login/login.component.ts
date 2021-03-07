@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   loginData: LoginData;
 
   loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    username: new FormControl('', /*[Validators.required, Validators.minLength(4)]*/),
+    password: new FormControl('', /*[Validators.required, Validators.minLength(4)]*/),
   });
 
   constructor(private userServ: UserService, private router: Router,
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         if (resp != undefined && resp != null) {
           this.authJWT.saveJWT(resp.headers.get('Authorization').split(' ')[1].trim());
 
-          this.router.navigate(['/courses']);
+          this.router.navigate(['/course']);
         }
       },
       _error => {
