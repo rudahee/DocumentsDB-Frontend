@@ -53,29 +53,7 @@ export class AddDocumentComponent implements OnInit {
   }
 
   addDocuments() {
-    const modal = Swal.fire({
-      title: 'Uploading',
-      icon: 'info',
-      showConfirmButton: false
-    })
-
-    if (!this.topicServ.addDocument(this.addDocForm.controls['files'].value, '48')) {
-      modal.then(
-        res => {
-          Swal.close();
-
-          Swal.fire('Upload Complete')
-        }
-      )
-    } else {
-      modal.then(
-        res => {
-          Swal.close();
-
-          Swal.fire('Error!')
-        }
-      )
-    }
+    this.topicServ.addDocument(this.addDocForm.controls['files'].value, this.id)
   }
 
 }

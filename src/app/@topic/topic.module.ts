@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { TopicRoutingModule } from './topic-routing.module';
 import { TopicComponent } from './topic.component';
-import { NoteComponent } from './note/note.component';
+import { DocumentComponent } from './document/document.component';
 
 
 @NgModule({
-  declarations: [TopicComponent, NoteComponent],
+  declarations: [TopicComponent, DocumentComponent],
   imports: [
     CommonModule,
     TopicRoutingModule,

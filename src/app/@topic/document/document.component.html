@@ -1,0 +1,10 @@
+<ol>
+  <li *ngFor="let doc of documents">
+    <div>
+      <p class="flex-center text-basic w-full">{{doc.name}}</p>
+      <br>
+      <p> Size: {{(doc.size/1024) / 1024 |number}} Mb </p>
+    </div>
+    <hr>
+  </li>
+</ol>

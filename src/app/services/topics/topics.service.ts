@@ -9,6 +9,7 @@ import { title } from 'process';
 import { first, map } from 'rxjs/operators';
 import { swalProviderToken } from '@sweetalert2/ngx-sweetalert2/lib/di';
 import { Form } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class TopicsService {
 
   documents: IDocument[];
 
-  constructor(private httpC: HttpClient) { }
+  constructor(private httpC: HttpClient, private router: Router) { }
 
   getTopic(id: string): Observable<ITopicWithNotes> {
 
@@ -29,7 +30,7 @@ export class TopicsService {
   }
 
 
-  addDocument(values: any, idNote:string): boolean {
+  addDocument(values: any, idNote:string) {
 
     let error: boolean = false;
     let errorMsg: string;
@@ -45,19 +46,50 @@ export class TopicsService {
 
       let formData: FormData = this.generateFormData(doc, idNote);
 
-      this.httpC.post<IDocument>('/document/'+idNote, formData).pipe(first()).subscribe(
-        _ok => {
-        },
-        fail => {
-          error = true;
-          errorMsg = fail;
-          console.log(fail);
+      const modal = Swal.fire({
+        title: 'Uploading',
+        icon: 'info',
+        showConfirmButton: false
+      })
+
+      const req = this.httpC.post<IDocument>('/document/'+idNote, formData).subscribe(
+
+        _res => {
+          Swal.close()
+          Swal.fire({
+            title: "Success",
+            text: "Document Added",
+            icon: "success",
+            showConfirmButton: true,
+            confirmButtonText: "Go To Courses",
+            showCancelButton: true,
+            cancelButtonText: "Stay here"
+          }).then(
+            result => {
+              if (result.isConfirmed) {
+                this.router.navigate(['/course']);
+              }}
+          )}, err => {
+            Swal.close()
+            Swal.fire({
+              title: "Error",
+              text: "Upload error, try it later",
+              icon: "error",
+              showConfirmButton: true,
+              confirmButtonText: "Go To Courses",
+            }).then(
+              result => {
+                if (result.isConfirmed) {
+                  this.router.navigate(['/course'])
+                }
+              }
+            )
         }
+
       )
     }
   )
 
-  return error;
 }
 
   private generateFormData(doc: IDocument, idNote:string): FormData {

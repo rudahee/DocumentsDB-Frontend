@@ -5,8 +5,8 @@ import { CourseItemComponent } from './course-item/courses.component';
 import { CourseComponent } from './course.component';
 
 const routes: Routes = [
-  { path: '', component: CourseComponent, canActivate: [IsLoggedGuard] },
-  { path: ':id', component: CourseItemComponent, canActivate: [IsLoggedGuard] }
+  { path: '', component: CourseComponent, canActivateChild: [IsLoggedGuard] },
+  { path: ':id', component: CourseItemComponent, canActivateChild: [IsLoggedGuard] }
 ];
 
 @NgModule({

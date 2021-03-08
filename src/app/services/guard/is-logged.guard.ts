@@ -15,7 +15,7 @@ export class IsLoggedGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.authJWT.getJWT == undefined) {
-      this.router.navigate(['/account/login']);
+      this.router.navigate(['/sign-up']);
       return false;
     }
     return true;

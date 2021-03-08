@@ -6,5 +6,5 @@ export interface INoteDTO {
   "description": string;
   "text": string;
   "open": boolean;
-  "document": IDocument[];
+  "documents": IDocument[];
 }

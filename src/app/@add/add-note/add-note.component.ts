@@ -39,7 +39,7 @@ export class AddNoteComponent implements OnInit {
       name: this.addNoteForm.controls['name'].value,
       description: this.addNoteForm.controls['description'].value,
       open: true,
-      document: undefined,
+      documents: undefined,
       text: this.addNoteForm.controls['text'].value
     }
     this.topicServ.addNote(this.id, this.note).subscribe(

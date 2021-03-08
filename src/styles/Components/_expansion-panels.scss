@@ -38,7 +38,6 @@
     border: 1px solid $text-secondary-color;
     border-radius: $border-radius;
     color: $text-secondary-color;
-    margin: $margin_basic - 0.2rem;
     height: fit-content + 10px;
     width: $width_rigth;
     min-height: 70px;
@@ -48,12 +47,10 @@
 
   .files {
     position: sticky;
-    top: 20px;
     height: fit-content;
     width: $width_rigth;
     border: 1px solid $text-secondary-color;
-    margin: $margin_basic - 0.2rem;
-    padding: $padding_basic;
+
     border-radius: $border-radius;
 
 
