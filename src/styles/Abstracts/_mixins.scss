@@ -1,0 +1,19 @@
+@mixin main($property) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: $property;
+
+  width: 100%;
+  height: fit-content;
+  min-height: 100%;
+}
+
+
+@mixin ml($property) {
+  margin-left: $property;
+}
+
+@mixin mr($property) {
+  margin-right: $property;
+}

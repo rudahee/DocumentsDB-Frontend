@@ -8,6 +8,7 @@
 // Utils Styles
 @import 'Abstracts/variables';
 @import 'Abstracts/functions';
+@import 'Abstracts/mixins';
 @import 'Abstracts/utils';
 
 // Base Styles
@@ -25,6 +26,7 @@
 // Layouts Styles
 @import 'Layout/header';
 @import 'Layout/flex-layouts';
+@import 'Layout/main';
 
 
 html, body  {
@@ -33,13 +35,13 @@ html, body  {
   background-color: $background-color;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
-  width: 100%;
-  height: fit-content;
-  min-height: 100%;
+
+
+.main-wrapper-start {
+  @include main(flex-start);
+}
+
+.main-wrapper-center {
+  @include main(center);
 }

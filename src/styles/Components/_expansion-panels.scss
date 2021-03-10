@@ -1,3 +1,11 @@
+.collapsibles-wrapper {
+  width: 100%;
+  height: fit-content;
+  @media screen and (min-device-width: 700px) {
+    width: 95%;
+  }
+}
+
 .collapsible {
   background-color: $secondary-color;
   color: white;
@@ -26,41 +34,12 @@
 
 .content {
   display: flex;
-  justify-content: space-between;
+  flex-flow: column nowrap;
+  justify-content: center;
   align-items: flex-start;
   height: fit-content;
   padding: $padding_basic + 0.5rem;
   background-color: $secondary-color;
-
-  .text-note {
-    text-align: justify;
-    padding: $padding_basic;
-    border: 1px solid $text-secondary-color;
-    border-radius: $border-radius;
-    color: $text-secondary-color;
-    height: fit-content + 10px;
-    width: $width_rigth;
-    min-height: 70px;
-    transition: box-shadow 0.3s ease-in-out;
-    cursor: pointer;
-  }
-
-  .files {
-    position: sticky;
-    height: fit-content;
-    width: $width_rigth;
-    border: 1px solid $text-secondary-color;
-
-    border-radius: $border-radius;
-
-
-
-  }
-  .file {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 
 }
 

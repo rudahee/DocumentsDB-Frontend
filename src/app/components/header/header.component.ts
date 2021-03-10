@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthJwtService } from 'src/app/services/interceptor/auth-jwt.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,7 +16,8 @@ export class HeaderComponent implements OnInit {
   profileMenuOpen: boolean = false;
 
   constructor(
-    private AuthJWT: AuthJwtService
+    private AuthJWT: AuthJwtService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,21 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.AuthJWT.deleteJWT();
+    Swal.fire({
+      title: 'Sign Out?',
+      text: 'Are you sure?',
+      icon: 'question',
+      showConfirmButton: true,
+      confirmButtonText: 'Yes',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+    }).then(
+      res => {
+        if (res.isConfirmed) {
+          this.router.navigate(['/home']);
+          this.AuthJWT.deleteJWT();
+        }
+      }
+    )
   }
 }

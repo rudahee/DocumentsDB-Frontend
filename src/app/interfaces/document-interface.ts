@@ -2,6 +2,7 @@ export interface IDocument {
   id?: number;
   size: number;
   name: string;
-  data?: any
+  data?: any;
+  isBlob?: boolean;
   contentType: string;
 }

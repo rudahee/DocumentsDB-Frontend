@@ -6,7 +6,7 @@
   <img src="assets/icons/add.png" alt="button to add a course" class="button-float-image">
 </button>
 
-<main style="justify-content: flex-start;">
+<main class="main-wrapper-start">
   <div *ngFor="let note of notes" style=" width:90%; height: fit-content;">
     <div class="collapsible" (click)="note.open = !note.open">
       <span>
@@ -15,12 +15,8 @@
       </span>
     </div>
     <div class="content flex-column" *ngIf="note.open">
-      <div class="flex-row content">
-        <p style="width: 30%;">{{note.text}}</p>
-        <div style="width: 70%;">
-          <app-document [noteId]="note.id"></app-document>
-        </div>
-      </div>
+      <app-document  class="w-full" [noteId]="note.id"></app-document>
+
       <button class="button" (click)="goToAddDocument(note.id)">
         <p>Add documents</p>
       </button>

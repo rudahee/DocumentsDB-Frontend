@@ -23,8 +23,6 @@ export class HttpInterceptorService implements HttpInterceptor {
       request = request.clone({ headers: request.headers.set('Access-Control-Expose-Headers', 'Authorization')})
     }
 
-
-
     request = request.clone({headers: request.headers.set('Accept', 'application/json')});
 
     const url = {url: this.urlBack + request.url};
@@ -40,6 +38,6 @@ export class HttpInterceptorService implements HttpInterceptor {
       finalize(() => {
 
       })
-    );
+      );
+    }
   }
-}

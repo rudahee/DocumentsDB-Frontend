@@ -1,10 +1,22 @@
-<ol>
-  <li *ngFor="let doc of documents">
-    <div>
-      <p class="flex-center text-basic w-full">{{doc.name}}</p>
-      <br>
-      <p> Size: {{(doc.size/1024) / 1024 |number}} Mb </p>
+
+<ol class="list">
+  <li class="list-element" *ngFor="let doc of documents">
+    <div class="list-element-text">
+      <p class="subtitle-note">{{ doc.name }}</p>
     </div>
-    <hr>
+    <div class="list-element-actions">
+
+      <button class="button-list" (click)="getDocumentForDownload(doc.id)">
+        <img class="icon" src="../../../assets/icons/save_file.png" alt="button from download file">
+      </button>
+
+      <button (click)="getDocumentForExternalView(doc.id)"
+        [class]="(doc.isBlob) ? 'button-list ml-icon' : 'button-list-disable ml-icon'">
+
+        <img [class]="(doc.isBlob) ? 'icon' : 'icon-disable' " [src]="(doc.isBlob) ? '../../../assets/icons/open_external.png' : '../../../assets/icons/no_open_ext.png'"
+        [alt]="(doc.isBlob) ? 'button from view file in other page' : 'button disable from view file in other page'">
+
+      </button>
+    </div>
   </li>
 </ol>

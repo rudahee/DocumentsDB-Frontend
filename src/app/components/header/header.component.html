@@ -11,7 +11,7 @@
   (click)="profileMenuChangeStatus()" alt="button for account menu" tabindex="1">
 </header>
 
-<ul *ngIf="navMenuOpen" class="menu-left">
+<ul [class]="(navMenuOpen) ? 'menu-left':'menu-hidden'" (click)="navMenuChangeStatus()">
   <li class="menu-item" routerLink="">Home Page</li>
   <li class="menu-item" routerLink="course">My Courses</li>
   <li class="menu-item" routerLink="sign-in">Sign In</li>

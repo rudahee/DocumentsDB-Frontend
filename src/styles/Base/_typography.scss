@@ -14,32 +14,18 @@ html {
 }
 
 .title-basic {
-  font-size: $size_title;
-  text-align: center;
+  font-size: $size_title - 1.5em;
   color: $text-color;
 }
 
-.subtitle-basic {
-  font-size: $size_subtitle;
+.subtitle-note {
+  font-size: $size_subtitle - 0.6em;
   text-align: justify;
-}
-
-.title-topic {
-  @extend .title-basic;
-  margin: $margin_basic;
 }
 
 .title-note {
   @extend .title-basic;
-  font-size: $size_title - 1.5em;
-  margin-left: $margin_basic ;
+  margin-left: $margin_basic;
 }
 
-.subtitle-note {
-  @extend .subtitle-basic;
-  font-size: $size_subtitle - 0.6em;
-}
 
-.text-basic {
-  font-size: $size_title - 2.3em;
-}

@@ -16,4 +16,12 @@ export class DocumentsService {
   getDocumentsFromNote(idNote: string): Observable<IDocument[]> {
     return this.httpC.get<IDocument[]>('/document/get/' + idNote);
   }
+
+  getDocument(id: string) {
+    return this.httpC.get('/document/get/data/'+id , {responseType: 'blob'})
+  }
+
+  getInfoForDocument(id: string) {
+    return this.httpC.get<IDocument>('/document/get/json/'+id)
+  }
 }

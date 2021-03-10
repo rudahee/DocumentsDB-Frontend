@@ -3,6 +3,18 @@
   cursor: pointer;
 }
 
+.icon {
+  @extend .icon-clickable;
+  margin: 0;
+  padding: 0;
+  width: 2em;
+}
+
+
+.icon-disable {
+  @extend .icon;
+  cursor: not-allowed;
+}
 
 .icon-large {
   @extend .icon-clickable;

@@ -36,7 +36,6 @@ export class TopicsService {
     let errorMsg: string;
 
     values.forEach(element => {
-
       let doc = {
         size: element.file.size,
         name: element.file.name,
@@ -46,7 +45,7 @@ export class TopicsService {
 
       let formData: FormData = this.generateFormData(doc, idNote);
 
-      const modal = Swal.fire({
+      Swal.fire({
         title: 'Uploading',
         icon: 'info',
         showConfirmButton: false
@@ -97,6 +96,7 @@ export class TopicsService {
     const file = new File([doc.data], doc.name)
     formData.append('mpf', file, doc.name)
     formData.append('extension', doc.name.substr(doc.name.lastIndexOf('.')+1))
+    formData.append('type', doc.contentType)
 
     return formData;
   }

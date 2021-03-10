@@ -1,11 +1,11 @@
-<ol class="file w-full flex-column">
-  <li *ngFor="let topic of topics" class="flex-row w-full">
-    <div class="w-full flex-column">
-      <h1 class="flex-center subtitle-basic w-full" style="text-align: center;">{{ topic.name }}</h1>
-      <p>{{ topic.description }}</p>
-      <hr class="w-85 opacitty-low">
+<ol class="list">
+  <li class="list-element" *ngFor="let topic of topics">
+    <div class="list-element-text">
+      <h1 class="title-note">{{ topic.name }}</h1>
+      <p class="subtitle-note ml-subtitle">{{ topic.description }}</p>
     </div>
-    <button class="button-mini" (click)="goToTopic(topic.id)">Ver mas</button>
-
+    <div class="list-element-actions">
+      <button class="button-list" (click)="goToTopic(topic.id)">Ver mas</button>
+    </div>
   </li>
 </ol>
