@@ -15,11 +15,11 @@ export class HttpInterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token: string = this.authJWT.getJWT();
 
-    if (token) {
+    if (token) { // If exists token put in request
       request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token)});
     }
 
-    if (!token) {
+    if (!token) { // If doesn't exist allows access to the Authorization header
       request = request.clone({ headers: request.headers.set('Access-Control-Expose-Headers', 'Authorization')})
     }
 

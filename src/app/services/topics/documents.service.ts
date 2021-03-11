@@ -18,7 +18,7 @@ export class DocumentsService {
   }
 
   getDocument(id: string) {
-    return this.httpC.get('/document/get/data/'+id , {responseType: 'blob'})
+    return this.httpC.get('/document/get/data/'+id , {responseType: 'blob'}) // Force to responseType to blob
   }
 
   getInfoForDocument(id: string) {

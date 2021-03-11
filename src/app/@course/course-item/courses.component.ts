@@ -19,7 +19,12 @@ export class CourseItemComponent implements OnInit {
 
 
 
-  constructor(private courseServ:OneCourseService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private courseServ:OneCourseService,
+    private route: ActivatedRoute,
+    private router: Router){
+
+    }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -29,7 +34,9 @@ export class CourseItemComponent implements OnInit {
         this.getCourse(this.id);
       })
   }
-
+  /*
+    Get the list of subjects for a specific course
+  */
   getCourse(id: string) {
     this.courseServ.getCourse(id).subscribe(
       resp => {
@@ -39,7 +46,7 @@ export class CourseItemComponent implements OnInit {
 
           this.subjects.forEach(
             subject => {
-              subject.open = false;
+              subject.open = false; // Expansion panel closed by default.
            })
           this.name = this.course.name;
         }

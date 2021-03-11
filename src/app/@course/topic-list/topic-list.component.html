@@ -1,8 +1,8 @@
 <ol class="list">
   <li class="list-element" *ngFor="let topic of topics">
     <div class="list-element-text">
-      <h1 class="title-note">{{ topic.name }}</h1>
-      <p class="subtitle-note ml-subtitle">{{ topic.description }}</p>
+      <h3 class="h2">{{ topic.name }}</h3>
+      <p class="p">{{ topic.description }}</p>
     </div>
     <div class="list-element-actions">
       <button class="button-list" (click)="goToTopic(topic.id)">Ver mas</button>

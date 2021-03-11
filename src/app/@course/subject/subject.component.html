@@ -1,10 +1,10 @@
 <main class="main-wrapper-start">
   <div class="collapsibles-wrapper" *ngFor="let subjectItem of subjects">
 
-    <div class="collapsible" (click)="openTopic(subjectItem)">
+    <div [class]="(subjectItem.open) ? 'collapsible-open': 'collapsible'" (click)="openTopic(subjectItem)">
       <span>
-        <h1 class="title-note">{{subjectItem.acronym}}</h1>
-        <p class="subtitle-note">{{subjectItem.name}}</p>
+        <h2 class="h2">{{subjectItem.acronym}}</h2>
+        <p class="p">{{subjectItem.name}}</p>
       </span>
     </div>
 

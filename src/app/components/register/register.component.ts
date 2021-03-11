@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
     this.user = this.registerForm.value;
     this.userServ.signUp(this.user).subscribe(
       _response => {
+        //If register is correct show a modal window.
         Swal.fire({
           title: "Success",
           text: "Register Success",
@@ -41,6 +42,7 @@ export class RegisterComponent implements OnInit {
           showCancelButton: true,
           cancelButtonText: "Close"
         }).then(
+          // Go to login
           result => {
             if (result.isConfirmed) {
               this.router.navigate(['/sign-in']);
@@ -49,6 +51,7 @@ export class RegisterComponent implements OnInit {
         )
       },
       error => {
+        // If register its invalid, show a error message
         Swal.fire({
           title: "Error",
           text: error.error.message,

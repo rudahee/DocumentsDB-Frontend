@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ICourse } from 'src/app/interfaces/course-interfaces';
 import { OneCourseService } from 'src/app/services/courses/one-course/one-course.service';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-course',
@@ -13,8 +14,12 @@ export class AddCourseComponent implements OnInit {
 
   course: ICourse;
 
-  constructor(private courseService: OneCourseService, private router: Router) {
-  }
+  constructor(
+    private courseService: OneCourseService,
+    private router: Router,
+    public loc: Location) {
+
+    }
 
   ngOnInit(): void {
     this.course = {
@@ -25,6 +30,10 @@ export class AddCourseComponent implements OnInit {
     }
   }
 
+  /*
+  When the form is submitted, it sends an alert when the request has been made correctly,
+  and gives the options to return to the list of courses or to return to the newly created course.
+  */
   onSubmitForm(value: ICourse) {
     this.courseService.addCourse(value).subscribe(
       res => {
@@ -46,6 +55,7 @@ export class AddCourseComponent implements OnInit {
           }
         )
       }, error => {
+        // In case of error I show the predefined message from the backend
         Swal.fire({
           title: "Error",
           text: error.message,

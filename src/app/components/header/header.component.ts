@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthJwtService } from 'src/app/services/interceptor/auth-jwt.service';
+import { UserService } from 'src/app/services/user/user.service';
 import Swal from 'sweetalert2';
 
 
@@ -15,13 +16,19 @@ export class HeaderComponent implements OnInit {
 
   profileMenuOpen: boolean = false;
 
+  isLogged: boolean;
+
   constructor(
-    private AuthJWT: AuthJwtService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-
+    this.userService.loggedEmitter.subscribe(
+      res => {
+        this.isLogged = res;
+      }
+    )
   }
 
   navMenuChangeStatus() {
@@ -34,6 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    // Confirm logout
     Swal.fire({
       title: 'Sign Out?',
       text: 'Are you sure?',
@@ -46,7 +54,7 @@ export class HeaderComponent implements OnInit {
       res => {
         if (res.isConfirmed) {
           this.router.navigate(['/home']);
-          this.AuthJWT.deleteJWT();
+          this.userService.signOut();
         }
       }
     )

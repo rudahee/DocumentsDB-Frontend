@@ -16,6 +16,11 @@ export class IsLoggedGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.authJWT.getJWT() == undefined || this.authJWT.getJWT() == null) {
+      /*
+        If try to access a restricted page without logged, send an alert
+        that does not allow you to press the escape key or in the background
+        to exit, you can only go to login or register.
+      */
       Swal.fire({
         title: 'No Auh',
         text: 'Your are not logged in',
@@ -24,6 +29,8 @@ export class IsLoggedGuard implements CanActivate {
         confirmButtonText: 'Go Register',
         showCancelButton: true,
         cancelButtonText: 'Go Login',
+        allowEscapeKey: false,
+        allowOutsideClick: false,
       }).then(
         res => {
           if (res.isConfirmed) {

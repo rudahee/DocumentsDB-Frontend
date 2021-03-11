@@ -23,9 +23,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-end;
-  width: 70%;
   margin-left: 1%;
-
+  width: 80%;
 
   .ml-subtitle {
     @include ml(2%);

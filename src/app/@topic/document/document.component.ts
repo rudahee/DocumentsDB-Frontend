@@ -27,13 +27,16 @@ export class DocumentComponent implements OnInit {
   }
 
   getDocumentForExternalView(id: string) {
+    // I need to do two requests because I can't get a json and a blob from the same request in spring.
     this.docService.getDocument(id).subscribe(
       res => {
+        // The second request is only made if the first request is correct.
         this.docService.getInfoForDocument(id).subscribe(
             info => {
-              let blob = new Blob([res], {type: info.contentType});
-              let url = window.URL.createObjectURL(blob);
+              let blob = new Blob([res], {type: info.contentType}); // Blob creation
 
+              // Create a URL object and open it from the BOM
+              let url = window.URL.createObjectURL(blob);
               window.open(url);
 
             }
@@ -43,12 +46,18 @@ export class DocumentComponent implements OnInit {
   }
 
   getDocumentForDownload(id: string) {
+    // I need to do two requests because I can't get a json and a blob from the same request in spring.
     this.docService.getDocument(id).subscribe(
       res => {
+        // The second request is only made if the first request is correct.
         this.docService.getInfoForDocument(id).subscribe(
             info => {
-              let blob = new Blob([res], {type: info.contentType});
+              let blob = new Blob([res], {type: info.contentType}); // Blob creation
+
+              // Create a URL object and open it from the BOM
               let url = window.URL.createObjectURL(blob);
+
+              // Create an element, set name, and pass the blob, and without showing it on the DOM, and click it
               var anchor = document.createElement("a");
               anchor.download = info.name;
               anchor.href = url;

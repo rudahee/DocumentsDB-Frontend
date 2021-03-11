@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { INoteDTO } from '../interfaces/notes-interfaces';
 import { ITopicWithNotes } from '../interfaces/topic-interface';
 import { TopicsService } from '../services/topics/topics.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-topic',
@@ -18,7 +19,14 @@ export class TopicComponent implements OnInit {
 
   notes: INoteDTO[];
   id: string;
-  constructor(private topicService: TopicsService, private route: ActivatedRoute, private router: Router) { }
+
+  constructor(
+    private topicService: TopicsService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public loc: Location) {
+
+    }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -32,6 +40,9 @@ export class TopicComponent implements OnInit {
     this.router.navigate(['/add/document/'+id])
   }
 
+  /*
+   Get all Topics
+  */
   getAllTopics(id: string) {
     this.topicService.getTopic(id).subscribe(
       resp => {

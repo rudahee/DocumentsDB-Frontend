@@ -17,8 +17,9 @@
   outline: none;
   font-size: 15px;
   margin-top: 2%;
-  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+  box-shadow: $box-shadow-amplified;
   transition: 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 
 
   span {
@@ -26,10 +27,17 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  &:hover {
+    background-color: $primary-color;
+    box-shadow: $box-shadow-amplified-hover;
+  }
 }
 
-.collapsible:hover {
+.collapsible-open {
+  @extend .collapsible;
   background-color: $primary-color;
+  border-bottom: none;
 }
 
 .content {
@@ -39,8 +47,15 @@
   align-items: flex-start;
   height: fit-content;
   padding: $padding_basic + 0.5rem;
-  background-color: $secondary-color;
+  background-color: $background-color-element;
+  box-shadow: $box-shadow-amplified;
+  transition: $transition-03;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: none;
 
+  &:hover {
+    box-shadow: $box-shadow-amplified-hover;
+  }
 }
 
 

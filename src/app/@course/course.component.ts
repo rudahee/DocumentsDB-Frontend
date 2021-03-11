@@ -18,6 +18,7 @@ export class CourseComponent implements OnInit {
     this.getAllCourses();
   }
 
+  // Get the list of courses for a user
   getAllCourses() {
     this.allCourses.getAllCourses().subscribe(
       resp => {

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { INoteDTO } from 'src/app/interfaces/notes-interfaces';
 import { TopicsService } from 'src/app/services/topics/topics.service';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-note',
@@ -16,8 +17,14 @@ export class AddNoteComponent implements OnInit {
   note: INoteDTO;
   id: string;
 
-  constructor(private topicServ: TopicsService, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder) {
-    this.addNoteForm = this.formBuilder.group({
+  constructor(
+    private topicServ: TopicsService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    public loc: Location) {
+
+      this.addNoteForm = this.formBuilder.group({
       description: new FormControl('', [Validators.required/* Validators.minLength(4)]*/]),
       name: new FormControl('', [Validators.required/* Validators.minLength(4)]*/]),
       text: new FormControl('', [Validators.required])
@@ -38,10 +45,15 @@ export class AddNoteComponent implements OnInit {
     this.note = {
       name: this.addNoteForm.controls['name'].value,
       description: this.addNoteForm.controls['description'].value,
-      open: true,
-      documents: undefined,
+      open: true, // Not implemented yet;
+      documents: undefined, // Required for response, not for request;
       text: this.addNoteForm.controls['text'].value
     }
+
+    /*
+      When the form is submitted, it sends an alert when the request has been made correctly,
+      and gives the options to return to the list of courses or to return to the topic list.
+    */
     this.topicServ.addNote(this.id, this.note).subscribe(
       res => {
         Swal.fire({
@@ -62,6 +74,7 @@ export class AddNoteComponent implements OnInit {
           }
         )
       }, error => {
+        // In case of error I show the predefined message from the backend
         Swal.fire({
           title: "Error",
           text: error.message,

@@ -103,7 +103,6 @@ export class TopicsService {
 
   private createBlobFromUriB64(b64data: string, contentType: any): Blob {
 
-
     const b64uri = b64data.split(',')[1]
 
     const byteCharacters = atob(b64uri)

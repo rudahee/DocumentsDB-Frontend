@@ -29,7 +29,6 @@
       height: 3px;
       background: #454555;
       position: absolute;
-      bottom: 0;
       left: 0;
       transition: all 0.525s cubic-bezier(0.2, 0, 0.03, 1);
     }
@@ -50,6 +49,10 @@
 
   input:valid ~ label, textarea:valid ~ label {
     @extend %label-movement;
+    ~ span {
+      width: 20rem + 2rem;
+      transition: all 0.525s cubic-bezier(0.2, 0, 0.03, 1);
+    }
   }
 }
 

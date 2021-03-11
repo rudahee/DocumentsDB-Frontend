@@ -1,20 +1,21 @@
-<div class="flex-column flex-center">
-  <h1 class="title-topic">{{topic.name}} </h1>
-  <h3 class="subtitle-note">{{topic.description}} </h3>
-</div>
-<button class="button-float" (click)="goToAddNote()">
+<button class="button-float-br" (click)="goToAddNote()">
   <img src="assets/icons/add.png" alt="button to add a course" class="button-float-image">
 </button>
-
+<button class="button-float-bl" (click)="loc.back()">
+  <img src="assets/icons/back.png" alt="button to add a course" class="button-float-image">
+</button>
 <main class="main-wrapper-start">
-  <div *ngFor="let note of notes" style=" width:90%; height: fit-content;">
-    <div class="collapsible" (click)="note.open = !note.open">
+  <h1 class="h1">{{topic.name}} </h1>
+  <h3 class="p w-full">{{topic.description}} </h3>
+
+  <div class="collapsibles-wrapper"  *ngFor="let note of notes">
+    <div [class]="(note.open)? 'collapsible-open' : 'collapsible'" (click)="note.open = !note.open">
       <span>
-        <h1 class="title-note">{{note.name}}</h1>
-        <p class="subtitle-note">{{note.description}}</p>
+        <h2 class="h2">{{note.name}}</h2>
+        <p class="p">{{note.description}}</p>
       </span>
     </div>
-    <div class="content flex-column" *ngIf="note.open">
+    <div class="content" *ngIf="note.open">
       <app-document  class="w-full" [noteId]="note.id"></app-document>
 
       <button class="button" (click)="goToAddDocument(note.id)">

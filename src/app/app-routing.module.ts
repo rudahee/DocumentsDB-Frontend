@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'sign-in', component: LoginComponent },
   { path: 'home', component: MainPageComponent },
   { path: '',  component: MainPageComponent},
+  // Lazy loading modules
   { path: 'course', loadChildren: () => import('./@course/course.module').then(m => m.CourseModule), canActivate: [IsLoggedGuard] },
   { path: 'topic', loadChildren: () => import('./@topic/topic.module').then(m => m.TopicModule), canActivate: [IsLoggedGuard] },
   { path: 'add', loadChildren: () => import('./@add/add.module').then(m => m.AddModule), canActivate: [IsLoggedGuard] }

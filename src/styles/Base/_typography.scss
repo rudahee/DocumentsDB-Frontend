@@ -6,26 +6,31 @@ html {
 
 .h1 {
   text-align: center;
+  font-variant: small-caps;
   width: 100%;
   font-size: 24pt;
+  letter-spacing: get-letter-spacing(24) * 1pt;
   margin-top: 1%;
   margin-bottom: 1%;
   font-weight: bolder;
 }
 
-.title-basic {
-  font-size: $size_title - 1.5em;
-  color: $text-color;
+.h2 {
+  text-align: left;
+  font-size: 24pt;
+  letter-spacing: get-letter-spacing(24) * 1pt;
+  font-weight: bolder;
 }
 
-.subtitle-note {
-  font-size: $size_subtitle - 0.6em;
-  text-align: justify;
+.p {
+
+  padding-left: 3%;
+  padding-right: 3%;
+  width: fit-content;
+  font-size: 1em;
+  letter-spacing: get-letter-spacing(1) * 1em;
 }
 
-.title-note {
-  @extend .title-basic;
-  margin-left: $margin_basic;
+.bold {
+  font-weight: 700;
 }
-
-

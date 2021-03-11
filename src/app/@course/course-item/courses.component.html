@@ -1,6 +1,9 @@
-<button class="button-float" (click)="goToAddSubject()">
+<button class="button-float-bl" routerLink="/course">
+  <img src="assets/icons/back.png" alt="button to add a course" class="button-float-image">
+</button>
+<button class="button-float-br" (click)="goToAddSubject()">
   <img src="assets/icons/add.png" alt="button to add a course" class="button-float-image">
 </button>
 
-<h1 class="title-basic">{{name}}</h1>
+<h2 class="h1">{{name}}</h2>
 <app-subject [subjects]="subjects"></app-subject>

@@ -20,24 +20,23 @@
   font-weight: bold;
 
   transition: background-color 0.3s ease-in-out;
-}
+  cursor: pointer;
 
+}
 
 .button {
   @extend .button-basic;
+  border-bottom: 1px solid rgba(131, 131, 131, 0.254);
 
   background-color: $primary-color;
-  color: $text-secondary-color;
-
-
-  cursor: pointer;
+  color: $text-color;
 }
 
 .button-mini {
   @extend .button;
   width: 30%;
 
-  margin: $margin_basic - 0.3 auto;
+  margin: $margin_basic - 0.5 auto;
 
   padding: $margin_basic - 0.7rem $margin_basic - 0.3rem;
 
@@ -49,42 +48,52 @@
 
 .button-disable {
   @extend .button-basic;
-  background-color: #a7a8cd7c;
-  color: #ecf0f1;
+  background-color: $disable-color;
+  color: $text-color;
 
   cursor: not-allowed;
 }
 
-.button-float {
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color: $primary-color-hover;
+.button-float-bl {
+  @extend .button-basic;
+  position:fixed;
+  width:60px;
+  height:60px;
+	background-color: $accent-color;
 	border-radius: 50%;
-	text-align: center;
-  box-shadow: 2px 2px 3px #999;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  transition: $transition-03;
 
   z-index: 1;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  bottom:40px;
+  left:40px;
+
+  &:hover {
+    background-color: $accent-color-hover;
+  }
 }
 
-.button-float:hover {
-  background-color: $primary-color;
+.button-float-br {
+  @extend .button-basic;
+  position:fixed;
+	background-color: $accent-color;
+	border-radius: 50%;
+
+  z-index: 1;
+
+  right:40px;
+  bottom:40px;
+
+  width:60px;
+  height:60px;
+  &:hover {
+    background-color: $accent-color-hover;
+  }
 }
 
 .button-float-image {
   width: 50px;
+  filter: invert(100%);
 }
-
 
 .button-subheader {
   width: fit-content;

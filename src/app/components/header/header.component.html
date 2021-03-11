@@ -1,4 +1,4 @@
-<header>
+<header class="header">
 <div class="header-left">
   <img class="icon-large-both" [src]="navMenuOpen ? 'assets/icons/menu_open.png':'assets/icons/menu_closed.png'"
     (click)="navMenuChangeStatus()" alt="button for navigator menu" tabindex="1">
@@ -7,17 +7,17 @@
 
 <div class="spacer"></div>
 
-<img class="icon-large-mr" src="assets/icons/account_circle.png"
+<img id="header-rigth" [class]="(isLogged) ? 'icon-large-mr' : 'menu-hidden'" src="assets/icons/account_circle.png"
   (click)="profileMenuChangeStatus()" alt="button for account menu" tabindex="1">
 </header>
 
 <ul [class]="(navMenuOpen) ? 'menu-left':'menu-hidden'" (click)="navMenuChangeStatus()">
   <li class="menu-item" routerLink="">Home Page</li>
-  <li class="menu-item" routerLink="course">My Courses</li>
-  <li class="menu-item" routerLink="sign-in">Sign In</li>
-  <li class="menu-item" routerLink="sign-up">Sign Up</li>
+  <li [class]="(isLogged) ? 'menu-item' : 'menu-hidden'" routerLink="course">My Courses</li>
+  <li [class]="(isLogged) ? 'menu-hidden' : 'menu-item'" routerLink="sign-in">Sign In</li>
+  <li [class]="(isLogged) ? 'menu-hidden' : 'menu-item'" routerLink="sign-up">Sign Up</li>
 </ul>
 
 <ul *ngIf="profileMenuOpen" class="menu-rigth">
-  <li class="menu-item"(click)="logout()">Sign Out</li>
+  <li class="menu-item"(click)="logout(); profileMenuChangeStatus()">Sign Out</li>
 </ul>

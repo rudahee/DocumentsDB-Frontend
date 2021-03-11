@@ -9,6 +9,7 @@
             alt="input for name" formControlName="name" required>
           <label for="name">Name</label>
           <span></span>
+          <p class="form-error" *ngIf="!registerForm.controls['name'].valid">Field required</p>
         </div>
 
         <div class="styled-input">
@@ -16,6 +17,7 @@
             alt="input for surname" formControlName="surname" required>
           <label for="surname">Surname</label>
           <span></span>
+          <p class="form-error" *ngIf="!registerForm.controls['surname'].valid">Field required</p>
         </div>
 
         <div class="styled-input">
@@ -23,6 +25,7 @@
             alt="input for age" formControlName="age" required>
           <label for="age">Age</label>
           <span></span>
+          <p class="form-error" *ngIf="!registerForm.controls['age'].valid">Field required. Must be a number</p>
         </div>
 
         <div class="styled-input">
@@ -30,6 +33,7 @@
             alt="input for email" formControlName="email" required>
           <label for="email">Email</label>
           <span></span>
+          <p class="form-error" *ngIf="!registerForm.controls['email'].valid">Field required. Must be an email</p>
         </div>
 
         <div class="styled-input">
@@ -37,6 +41,7 @@
             alt="input for username" formControlName="username" required>
           <label for="username">Username</label>
           <span></span>
+          <p class="form-error" *ngIf="!registerForm.controls['username'].valid">Field required</p>
         </div>
 
         <div class="styled-input">
@@ -44,6 +49,7 @@
             alt="input for password" formControlName="password" required>
           <label for="password">Password</label>
           <span></span>
+          <p class="form-error" *ngIf="!registerForm.controls['password'].valid">Field required</p>
         </div>
       </div>
 

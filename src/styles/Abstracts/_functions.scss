@@ -1,0 +1,8 @@
+@function get-letter-spacing($font-size) {
+  $result: $font-size * 0.07;
+  @if $result > 0.5 {
+    @return 0.5;
+  } @else {
+    @return $result;
+  }
+}

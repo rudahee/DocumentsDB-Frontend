@@ -35,9 +35,6 @@ html, body  {
   background-color: $background-color;
 }
 
-
-
-
 .main-wrapper-start {
   @include main(flex-start);
 }

@@ -1,6 +1,7 @@
-header {
+.header {
   background-color: $primary-color;
   height: fit-content;
+  box-shadow: $box-shadow;
   width: 100%;
   position: sticky;
   top: 0;
@@ -8,8 +9,14 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-flow: row nowrap;
-  color: white;
+  color: $text-color;
   z-index: 2;
+  border-bottom: 1px solid rgba(131, 131, 131, 0.254);
+  transition: $transition-03;
+
+  &:hover {
+    box-shadow: $box-shadow-hover;
+  }
 }
 
 .header-left {
@@ -24,6 +31,7 @@ header {
   font-size: 32pt;
   padding: 0;
   margin: 0;
+  cursor: pointer;
 }
 
 .menu {
@@ -31,16 +39,25 @@ header {
   display: block;
   width: 100%;
   top: 3.71em;
+  box-shadow: $box-shadow;
   background-color: $primary-color;
   z-index: 2;
+  transition: $transition-03;
+
+  &:hover {
+    box-shadow: $box-shadow-hover;
+  }
 }
 
 .menu-item {
-  padding: 4% 0 4% 0;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  width: 100%;
   font-size: 22pt;
   text-align: center;
-  border-bottom: 1px solid black;
   cursor: pointer;
+  color: $text-color;
+  box-shadow: 1px 0 1px 0 rgb(0, 0, 0);
 
   &:hover {
     background-color: $primary-color-hover;
@@ -50,7 +67,8 @@ header {
 .menu-left {
   @extend .menu;
   @media only screen and (min-device-width: 760px) {
-    width: 30%;
+    width: 20%;
+    height: fit-content;
     left: 0;
   }
 }
@@ -58,7 +76,8 @@ header {
 .menu-rigth {
   @extend .menu;
   @media only screen and (min-device-width: 760px) {
-    width: 30%;
+    width: 20%;
+    height: fit-content;
     right: 0;
   }
 }

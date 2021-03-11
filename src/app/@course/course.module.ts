@@ -6,7 +6,6 @@ import { CourseComponent } from './course.component';
 import { CourseItemComponent } from './course-item/courses.component';
 import { SubjectComponent } from './subject/subject.component';
 import { TopicListComponent } from './topic-list/topic-list.component';
-import { AddNoteComponent } from '../@add/add-note/add-note.component';
 
 
 @NgModule({

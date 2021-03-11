@@ -1,6 +1,8 @@
 <main class="main-wrapper-center">
   <div class="card-wrapper">
-    <h1 class="card-title">Sign In</h1>
+    <div class="card-header">
+      <h1 class="card-title">Sign In</h1>
+    </div>
     <div class="card-content">
       <form [formGroup]="loginForm" class="form-one-column">
 
@@ -9,6 +11,7 @@
               alt="input for username" formControlName="username" required>
             <label for="username">Username</label>
             <span></span>
+            <p class="form-error" *ngIf="!loginForm.controls['username'].valid">Field required</p>
           </div>
 
           <div class="styled-input">
@@ -16,6 +19,7 @@
               alt="input for password" formControlName="password" required>
             <label for="password">Password</label>
             <span></span>
+            <p class="form-error" *ngIf="!loginForm.controls['password'].valid">Field required</p>
           </div>
 
         <button href="#" [class]="loginForm.valid ? 'button':'button-disable' " [disabled]="!loginForm.valid" (click)="signIn()" >Sign In</button>

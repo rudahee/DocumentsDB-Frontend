@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ITopicDTO } from 'src/app/interfaces/topic-interface';
 import { OneCourseService } from 'src/app/services/courses/one-course/one-course.service';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-topic',
@@ -14,7 +15,11 @@ export class AddTopicComponent implements OnInit {
   id: string;
   topic: ITopicDTO;
 
-  constructor(private courseService: OneCourseService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private courseService: OneCourseService,
+    private router: Router,
+    private route: ActivatedRoute,
+    public loc: Location) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -29,7 +34,10 @@ export class AddTopicComponent implements OnInit {
       id: undefined
     }
   }
-
+    /*
+      When the form is submitted, it sends an alert when the request has been made correctly,
+      and gives the options to return to the list of courses or to return to the topic list.
+    */
   onSubmitForm(topic: ITopicDTO) {
     this.courseService.addTopic(topic, this.id).subscribe(
       res => {
@@ -51,6 +59,7 @@ export class AddTopicComponent implements OnInit {
           }
         )
       }, error => {
+        // In case of error I show the predefined message from the backend
         Swal.fire({
           title: "Error",
           text: error.message,
