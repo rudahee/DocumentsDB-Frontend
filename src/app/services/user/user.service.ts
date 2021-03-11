@@ -43,6 +43,7 @@ export class UserService {
   }
 
   signOut() {
+    // Log Out is delete localstorage and emit isLogged = false
     this.authJWT.deleteJWT();
     this.isLogged = false;
     this.loggedEmitter.emit(this.isLogged);
